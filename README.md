@@ -1,5 +1,5 @@
 # DobsonGoto
-Adding track/goto functionality to a Skywatcher 650 Heritage Dobson telescope
+Adding track/goto functionality to a [Skywatcher Heritage P130](http://www.skywatcher.com/product/heritage-p130/) Dobsonian telescope
 
 ## Software
 After struggling trying to create the program myself, 
