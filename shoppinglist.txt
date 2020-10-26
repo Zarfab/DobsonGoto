@@ -1,0 +1,14 @@
+[X] Steppers (Nema17): https://www.aliexpress.com/item/5PCS-45Ncm-Nema-17-Stepper-Motor-2A-4-wire-1m-Cable-for-DIY-3D-Pinter-Reprap/32573900457.html?spm=a2g0s.9042311.0.0.27424c4dRBNC15
+[X] Stepper drivers (LV8729) : https://fr.aliexpress.com/item/32848585188.html?spm=a2g0s.12269583.0.0.4b083278Z6h8So
+[X] Stepper gear wheels : https://www.amazon.fr/gp/product/B07CRHM6ZS/ref=ox_sc_saved_title_1?smid=A3MWTOW3Y5FBF1&psc=1
+[X] Belts : https://www.amazon.fr/courroie-synchrone-dent%C3%A9e-largeur-pi%C3%A8ces/dp/B07D9236BL/ref=sr_1_22?ie=UTF8&qid=1546768985&sr=8-22&keywords=courroie%2B6mm&th=1 (696mm and 1068mm)
+
+[X] OnStep STM32 BluePill PCB : https://easyeda.com/kbahey/OnStep-STM32-Blue-Pill
+[X] STM32 Bluepill : https://fr.aliexpress.com/item/32649400326.html?spm=a2g0s.12269583.0.0.165566d5eSbR4o
+[X] Temperature and Pressure sensor BME280
+[X] All components from EasyEDA BOM
+
+[X] Bubble level : https://www.amazon.fr/gp/product/B07FQHTQ16/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1
+[X] Compass : https://www.amazon.fr/gp/product/B0045V83GI/ref=ppx_yo_dt_b_detailpage_o06_s01?ie=UTF8&psc=1
+[X] Plywood : You local hardware store
+
