@@ -56,7 +56,7 @@ module bottom_box() {
             translate([0, -battery_w/2-5, box_size[2]/2-4]) cube([box_size[0]+1, box_size[1]-battery_w-10, 10], center=true);
             translate([0, 3.6, box_size[2]/2]) cube([box_size[0]+1,10, 2], center=true);
         }
-        translate([0, 3.6, box_size[2]/2]) cube([box_size[0]-4, 10, 24], center=true);
+        translate([0, 3.6, box_size[2]/2]) cube([box_size[0]-4, 10, 22], center=true);
         // screws for cover
         for(pos = [[6, box_size[2]/2-8],
                     [-box_size[1]/2+3.6, 0] 
