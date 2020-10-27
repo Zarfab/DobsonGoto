@@ -14,7 +14,7 @@ module bottom_box() {
         union() {
             chamferedCube(box_size, 1.2);
             // battery monito button
-            translate([-6, (box_size[1]-battery_w)/2-2, box_size[2]/2]) scale([1, 1, 0.5]) sphere(d=5.2);
+            translate([-6, (box_size[1]-battery_w)/2-2, box_size[2]/2]) scale([1, 1, 0.5]) sphere(d=4.4);
         }
         // battery pack
         translate([0, 0, -8]) cube([66, box_size[1]+2, 110], center=true);
@@ -36,10 +36,11 @@ module bottom_box() {
         translate([-box_size[0]/2 + 12.8, (box_size[1]-battery_w)/2, 66.2]) rotate([0, 0, 90]) #rocker(small_rocker);
         // barrel jack
         translate([(box_size[0]-battery_w)/2+1, (box_size[1]-battery_w)/2, box_size[2]/2]) #barrel_jack();
-        //translate([(box_size[0]-battery_w)/2+1, (box_size[1]-battery_w)/2-8, box_size[2]/2-12-3]) cube([12.4, 16, 24], center=true);
         // battery monitor with button
-        translate([-6, (box_size[1]-battery_w)/2-2, box_size[2]/2]) rotate([0, 0, 180])battery_monitor_module();
-        translate([-6, (box_size[1]-battery_w)/2-6.8, box_size[2]/2]) rotate([0, 0, 180])battery_monitor_module(cutout=false);
+        translate([-6, (box_size[1]-battery_w)/2, box_size[2]/2-0.2]) rotate([0, 0, 180]) {
+            translate([0, 2, 0]) #battery_monitor_module();
+            translate([0, 6.8, 0]) battery_monitor_module(cutout=false);
+        }
         // space for wires and jack connection between PCB and box
         translate([0, (box_size[1]-battery_w)/2, box_size[2]/2-13.4]) hull() {
             rotate([0, 90, 0]) cylinder(d=12, h=box_size[0]-8, center=true);
@@ -161,8 +162,8 @@ module battery_monitor_module(cutout=true) {
                 cylinder(d=6, h=4);
                 translate([0, -5, 2]) cube([4, 8, 4], center=true);
             }
-            cylinder(d=5.2, h=4.1);
-            translate([0, -5, 3]) cube([3.2, 8.2, 2], center=true);
+            cylinder(d=4.4, h=4.1);
+            translate([0, -5, 3]) cube([2.4, 8.2, 2], center=true);
         }
     }
 }
