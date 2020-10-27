@@ -46,9 +46,9 @@ module bottom_box() {
             rotate([0, 90, 0]) cylinder(d=14, h=box_size[0]-8, center=true);
             translate([0, -10, 0]) cube([box_size[0]-8, 14, 14], center=true);
         }
-        hull() {
+        #hull() {
             translate([box_size[0]/2 - 4 - 12, box_size[1]/2-battery_w, box_size[2]/2-35]) cube([10.8, battery_w/2, 16]);
-            translate([box_size[0]/2 - 8.4 - 7.6, box_size[1]/2-battery_w, -box_size[2]/2+5]) cube([7.4, battery_w/2, 2]);
+            translate([box_size[0]/2 - 8.4 - 7.6, box_size[1]/2-battery_w, -box_size[2]/2+8]) cube([7.4, battery_w/2, 2]);
         }
         // trench for cover
         translate([0, -box_size[1]/2, 0]) cube([box_size[0]-3.2, 12, box_size[2]-3.2], center=true);
