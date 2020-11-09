@@ -60,11 +60,7 @@
 #define Axis2_M0              7     // Microstep Mode 0 or SPI MOSI
 #define Axis2_M1              8     // Microstep Mode 1 or SPI SCK
 #define Axis2_M2              9     // Microstep Mode 2 or SPI CS or Decay Mode
-#if PINMAP == MiniPCB13
-  #define Axis2_M3         Aux1     // SPI MISO/Fault or I2C SDA
-#else
-  #define Axis2_M3           10     // ESP8266 RST or SPI MISO/Fault
-#endif
+#define Axis2_M3             10     // ESP8266 RST or SPI MISO/Fault
 #define Axis2_STEP           11     // Step
 #define Axis2_DIR            12     // Dir (ESP8266 GPIO0 on MiniPCB13)
 #define Axis2_DECAY    Axis2_M2     // Decay mode
@@ -88,9 +84,9 @@
 
 // ST4 interface
 #define ST4RAw                2     // ST4 RA- West
-#define ST4DEs                3     // ST4 DE- South
+#define ST4DEs                5     // ST4 DE- South
 #define ST4DEn                4     // ST4 DE+ North
-#define ST4RAe                5     // ST4 RA+ East
+#define ST4RAe                3     // ST4 RA+ East
 
 #else
 #error "Wrong processor for this configuration!"
