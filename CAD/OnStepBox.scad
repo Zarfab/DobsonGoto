@@ -7,7 +7,7 @@ include <NopSCADlib/lib.scad>
 
 bottom_box();
 
-box_size = [85.6, 54, 142];
+box_size = [85.6, 64, 142];
 battery_w = 19.2;
 module bottom_box() {
     translate([0, -box_size[1]/2, box_size[2]/2]) difference() {
@@ -18,21 +18,18 @@ module bottom_box() {
         }
         // battery pack
         translate([1, 0, -10]) cube([66.2, box_size[1]+2, 106], center=true);
-        rotate([0, -90, 180]) translate([-12.0, -(box_size[1]-battery_w)/2, 1]) battery_pack(s=6, p=1);
+        rotate([0, -90, 180]) translate([-12.0, -(box_size[1]-battery_w)/2, 1]) battery_pack(bd=18.2, s=6, p=1, tol=1.6);
         // pcb
-        rotate([90, 90, 0]) translate([0, 0, (50-box_size[1])/2]) pcb();
+        rotate([90, 90, 0]) translate([0, 0, (58-box_size[1])/2]) pcb();
         // GPS antenna
-        translate([-box_size[0]/2 + 16 + 4.4, -box_size[1]/2+4+12, -box_size[2]/2 + 7.2]) chamferedCube([32, 26, 12], 2);
+        translate([-box_size[0]/2 + 16 + 4.4, -box_size[1]/2+4+16, -box_size[2]/2 + 7.2]) chamferedCube([36, 34, 12], 2);
         // BME280
-        translate([-box_size[0]/2+2.8, -10, 50]) cube([4, 15.2, 11.6], center=true);
-        translate([-box_size[0]/2, -10+7.4-3.2, 50+5.6-3.2]) chamferedCube([6, 4, 4], 0.8);
-        // switch
-        translate([-box_size[0]/2 + 12.8, (box_size[1]-battery_w)/2, 58]) rotate([0, 0, 90]) rocker_hole(small_rocker, h = 30);
-        hull() {
-            translate([-box_size[0]/2 + 12.8, (box_size[1]-battery_w)/2, 58-7]) rotate([0, 0, 90]) rocker_hole(small_rocker, h = 16);
-        translate([-box_size[0]/2 + 12.8, (box_size[1]-battery_w)/2-4, 58-7]) rotate([0, 0, 90]) rocker_hole(small_rocker, h = 16);
-            translate([-box_size[0]/2 + 12.8, (box_size[1]-battery_w)/2-2, 40]) rotate([90, 0, 0]) cylinder(d=12, h=17, center=true);
+        translate([0, 1, -30]) {
+            translate([-box_size[0]/2+2.8, -10, 50]) cube([4, 15.2, 11.6], center=true);
+            translate([-box_size[0]/2, -10+7.4-3.2, 50+5.6-3.2]) chamferedCube([6, 4, 4], 0.8);
         }
+        // switch
+        translate([-box_size[0]/2 + 12.8, (box_size[1]-battery_w)/2, 64]) rotate([0, 0, 90]) rocker_hole(small_rocker, h = 30);
         translate([-box_size[0]/2 + 12.8, (box_size[1]-battery_w)/2, box_size[2]/2-1.6]) rotate([0, 0, -90]) scale([1.03, 1.03, 1]) #rocker(small_rocker);
         // barrel jack
         translate([(box_size[0]-battery_w)/2+0, (box_size[1]-battery_w)/2, box_size[2]/2]) #barrel_jack();
@@ -46,19 +43,19 @@ module bottom_box() {
             rotate([0, 90, 0]) cylinder(d=14, h=box_size[0]-8, center=true);
             translate([0, -10, 0]) cube([box_size[0]-8, 14, 14], center=true);
         }
-        #hull() {
-            translate([box_size[0]/2 - 4 - 12, box_size[1]/2-battery_w, box_size[2]/2-35]) cube([10.8, battery_w/2, 16]);
-            translate([box_size[0]/2 - 8.4 - 7.6, box_size[1]/2-battery_w, -box_size[2]/2+8]) cube([7.4, battery_w/2, 2]);
+        hull() {
+            translate([box_size[0]/2 - 4 - 12, box_size[1]/2-battery_w-4, box_size[2]/2-35]) cube([11.6, battery_w/2+4, 16]);
+            translate([box_size[0]/2 - 8.4 - 7.6, box_size[1]/2-battery_w-4, -box_size[2]/2+8]) cube([7.4, battery_w/2, 2]);
         }
         // trench for cover
         translate([0, -box_size[1]/2, 0]) cube([box_size[0]-3.2, 12, box_size[2]-3.2], center=true);
-        hull() {
-            translate([0, -battery_w/2-5, box_size[2]/2-4]) cube([box_size[0]+1, box_size[1]-battery_w-10, 10], center=true);
+        translate([0, 5, 0]) hull() {
+            translate([0, -battery_w/2-15, box_size[2]/2-4]) cube([box_size[0]+1, box_size[1]-battery_w-10, 10], center=true);
             translate([0, 3.6, box_size[2]/2]) cube([box_size[0]+1,10, 2], center=true);
         }
-        translate([0, 3.6, box_size[2]/2]) cube([box_size[0]-4, 10, 22], center=true);
+        translate([0, 3.6, box_size[2]/2]) cube([box_size[0]-4, 20, 22], center=true);
         // screws for cover
-        for(pos = [[6, box_size[2]/2-8],
+        for(pos = [[8, box_size[2]/2-8],
                     [-box_size[1]/2+3.6, 0] 
                     /*[-box_size[1]/2+3.6, -box_size[2]/2+10]*/
                   ]
@@ -74,7 +71,7 @@ module bottom_box() {
                 translate([0, 0, -box_size[1]/2+1]) cylinder(d1=3.6, d2=6.4, h=2.01);
             }
         }
-        translate([0, 6, -box_size[2]/2 + 10]){
+        translate([0, 9, -box_size[2]/2 + 10]){
             cylinder(d=6.4, h=20-8, center=true);
             translate([0, 0, -10-1]) cylinder(d=3.6, h=6);
             translate([0, 0, -10+2]) cylinder(d1=3.6, d2=6.4, h=2.01);
