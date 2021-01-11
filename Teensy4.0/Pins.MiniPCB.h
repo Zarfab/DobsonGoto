@@ -84,9 +84,10 @@
 
 // ST4 interface
 #define ST4RAw                2     // ST4 RA- West
-#define ST4DEs                5     // ST4 DE- South
-#define ST4DEn                4     // ST4 DE+ North
 #define ST4RAe                3     // ST4 RA+ East
+#define ST4DEn                4     // ST4 DE+ North
+#define ST4DEs                5     // ST4 DE- South
+
 
 #else
 #error "Wrong processor for this configuration!"

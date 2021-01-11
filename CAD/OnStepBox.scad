@@ -181,3 +181,14 @@ module pcb() {
         translate([0, 0, -2]) cube([34, 82.0, 18], center=true);
     }
 }
+
+
+module air_inlet(size, nb_lines, hole_prop) {
+    hole_h = size[1] * hole_prop / nb_lines;
+    for(i = [0 : nb_lines-1]) {
+        translate([0, size[1]/2 - i*(size[1]-hole_h)/(nb_lines-1) -hole_h/2, 0]) hull() {
+            translate([-(size[0]-hole_h)/2, 0, 0]) cylinder(d=hole_h, h=size[2]);
+            translate([+(size[0]-hole_h)/2, 0, 0]) cylinder(d=hole_h, h=size[2]);
+        }
+    }
+}
