@@ -329,8 +329,10 @@ void SmartHandController::setup(const char version[], const int pin[7],const boo
   // SERIAL_INTERFACE_ALT if one of them pulled LOW
   pinMode(ST4DEs,INPUT);
   pinMode(ST4DEn,INPUT);
+  pinMode(SERIAL_ALT_SELECT_PIN, INPUT);
+  delay(200);
   alternativeSerial = false;
-  if(digitalRead(ST4DEs) && digitalRead(ST4DEn)) {
+  if(digitalRead(SERIAL_ALT_SELECT_PIN) /*&& digitalRead(ST4DEs) && digitalRead(ST4DEn)*/) {
       SERIAL_INTERFACE.begin(SERIAL_BAUD_DEFAULT);
       Ser = &SERIAL_INTERFACE;
   }

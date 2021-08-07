@@ -26,12 +26,13 @@
 #define SERIAL_BAUD_DEFAULT          9600 //   9600, Common baud rates for these parameters are 9600,19200,57600,115200.    Infreq
                                           //         Only used for async serial communication with OnStep.
                                           
-#define SERIAL_INTERFACE_ALT      WiFiST4 // Se..l2, This is the alternative serial interface connected to OnStep when      Infreq
+#define SERIAL_INTERFACE_ALT      Serial2 // Se..l2, This is the alternative serial interface connected to OnStep when      Infreq
                                           //         De+ or De- is pulled down.
                                           //         For example it can communicate over Bluetooth with a HC-05  module 
                                           //         configured as master and paired with OnStep Bluetooth module if available
                                           //         The baud rate will be set to SERIAL_BAUD_DEFAULT
-#define SERIAL_INTERFACE_ALT_NAME "WiFiST4"
+#define SERIAL_INTERFACE_ALT_NAME "BlueTooth"
+#define SERIAL_ALT_SELECT_PIN       5
 
 // WIFI SETTINGS -------------------------------------------------------------------------------------------------------------------
 #define WIFI_SERIAL                    ON //

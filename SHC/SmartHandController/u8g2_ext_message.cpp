@@ -96,7 +96,7 @@ u8g2_uint_t ext_draw_button_line(u8g2_t *u8g2, u8g2_uint_t y, u8g2_uint_t w, uin
     u8g2_SetFontPosBaseline(u8g2);
 */
 
-u8g2_uint_t ext_UserInterfaceMessage(u8g2_t *u8g2, Pad *extPad, const char *title1, const char *title2, const char *title3, const char *buttons)
+uint8_t ext_UserInterfaceMessage(u8g2_t *u8g2, Pad *extPad, const char *title1, const char *title2, const char *title3, const char *buttons)
 {
   uint8_t height;
   uint8_t line_height;
